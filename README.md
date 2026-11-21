@@ -46,3 +46,10 @@ Currently under development.
 ---
 DEM CASH INTERNATIONAL  
 Your Money. Your World. Your Future.
+## Project Status
+Development in progress.
+
+## Brand Colours
+- Green
+- Black
+- Gold
