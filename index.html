@@ -192,6 +192,36 @@ function receiveMoney() {
     '\nProvider: ' + provider);
 }
 
+function sendMoney() {
+  const section = document.getElementById('send');
+
+  const inputs = section.querySelectorAll('input');
+  const selects = section.querySelectorAll('select');
+
+  const recipient = inputs[0]?.value.trim();
+  const phone = inputs[1]?.value.trim();
+  const amount = Number(inputs[2]?.value);
+
+  const country = selects[0]?.value;
+  const payout = selects[1]?.value;
+
+  if (!recipient || !phone || !amount ||
+      amount <= 0 || !country || !payout) {
+    alert('Please complete all transfer details.');
+    return;
+  }
+
+  alert(
+    'DEMO TRANSFER REQUEST\n' +
+    'Recipient: ' + recipient +
+    '\nPhone: ' + phone +
+    '\nAmount: ' + amount +
+    '\nCountry: ' + country +
+    '\nPayout: ' + payout +
+    '\n\nThis is a demonstration only. No money has been sent.'
+  );
+}
+
 </script>
 </body>
 </html>
