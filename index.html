@@ -154,11 +154,24 @@ Your Money, Your World.<br>
 </footer>
 
 <script>
-function show(id){
-document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
-document.getElementById(id).classList.remove('hidden');
-window.scrollTo(0,0);
+
+function show(id) {
+  const sections = document.querySelectorAll('main section');
+
+  sections.forEach(section => {
+    section.classList.add('hidden');
+  });
+
+  const target = document.getElementById(id);
+
+  if (target) {
+    target.classList.remove('hidden');
+    window.scrollTo(0, 0);
+  } else {
+    alert('Page not found: ' + id);
+  }
 }
+
 function demo(){
 alert("This is a demonstration. Live payments are not yet connected.");
 }
