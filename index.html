@@ -6,250 +6,147 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DEM CASH INTERNATIONAL</title>
 <style>
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #07130e;
-  color: white;
-}
-header {
-  background: #10271b;
-  padding: 22px;
-  text-align: center;
-  border-bottom: 2px solid #d5a52e;
-}
-h1 { color: #e5bd50; font-size: 24px; }
-.tagline { color: #ddd; }
-main { padding: 22px; max-width: 500px; margin: auto; }
-.card {
-  background: #142c1e;
-  border: 1px solid #d5a52e;
-  border-radius: 15px;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-h2, h3 { color: #e5bd50; }
-input {
-  width: 100%;
-  padding: 14px;
-  margin: 9px 0;
-  border-radius: 8px;
-  border: 1px solid #777;
-  background: #07130e;
-  color: white;
-}
-button {
-  width: 100%;
-  padding: 14px;
-  margin-top: 12px;
-  border: 0;
-  border-radius: 8px;
-  background: #d5a52e;
-  color: #07130e;
-  font-weight: bold;
-  font-size: 16px;
-}
-.link {
-  color: #e5bd50;
-  text-align: center;
-  cursor: pointer;
-  margin-top: 18px;
-}
-.hidden { display: none; }
-.balance {
-  background: #174b30;
-  padding: 22px;
-  border-radius: 12px;
-}
-.amount { font-size: 28px; font-weight: bold; }
-.services {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-.service {
-  background: #183b29;
-  padding: 18px 8px;
-  border: 1px solid #d5a52e;
-  border-radius: 10px;
-  text-align: center;
-}
-footer {
-  text-align: center;
-  padding: 20px;
-  color: #aaa;
-}
+*{box-sizing:border-box}
+body{margin:0;background:#07130e;color:white;font-family:Arial,sans-serif}
+header{background:#10271b;padding:22px;text-align:center;border-bottom:2px solid #d5a52e}
+header h1{color:#e5bd50;font-size:25px;margin:5px}
+header p{color:#ddd}
+main{padding:20px;max-width:550px;margin:auto}
+.balance{background:#142c1e;border:1px solid #d5a52e;border-radius:15px;padding:22px;margin:15px 0}
+.balance small{color:#ddd}
+.balance h2{font-size:30px;color:#e5bd50}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:#142c1e;border:1px solid #d5a52e;border-radius:12px;padding:18px;text-align:center;cursor:pointer}
+.card b{color:#e5bd50;font-size:17px}
+h3{color:#e5bd50}
+button{background:#d5a52e;color:#07130e;border:0;padding:14px;border-radius:9px;font-weight:bold;width:100%;margin-top:12px}
+input,select{width:100%;padding:14px;margin:8px 0;background:#142c1e;color:white;border:1px solid #d5a52e;border-radius:8px}
+.panel{background:#10271b;padding:18px;border-radius:12px;margin-top:20px}
+.hidden{display:none}
+nav{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;background:#10271b;padding:10px;position:sticky;bottom:0}
+nav button{font-size:12px;padding:12px 3px;margin:0}
+footer{text-align:center;color:#aaa;padding:20px;font-size:12px}
 </style>
 </head>
 <body>
 
 <header>
-<h1>DEM CASH INTERNATIONAL</h1>
-<p class="tagline">Your Money. Your World. Your Future.</p>
+<h1>DEM CASH</h1>
+<p>INTERNATIONAL</p>
+<small>FAST • SAFE • RELIABLE</small>
 </header>
 
 <main>
-
-<section id="login" class="card">
-<h2>Customer Login</h2>
-<p>Welcome back!</p>
-<input id="loginEmail" type="email" placeholder="Email address">
-<input id="loginPassword" type="password" placeholder="Password">
-<button onclick="loginUser()">Login</button>
-<p class="link" onclick="showRegister()">
-New customer? Create an account
-</p>
-</section>
-
-<section id="register" class="card hidden">
-<h2>Create Your Account</h2>
-<input id="fullName" placeholder="Full name">
-<input id="regEmail" type="email" placeholder="Email address">
-<input id="regPassword" type="password" placeholder="Create password">
-<button onclick="registerUser()">Register</button>
-<p class="link" onclick="showLogin()">Already registered? Login</p>
-</section>
-
-<section id="dashboard" class="hidden">
+<section id="home">
 <div class="balance">
-<h2>My Wallet</h2>
-<p>Available Demo Balance</p>
-<div class="amount">SLE 0.00</div>
+<small>MY DEM CASH WALLET</small>
+<h2>Le 0.00</h2>
+<small>Demo balance • Sierra Leone</small>
 </div>
 
-<h3>Our Services</h3>
-<div class="services">
-<div class="service">📱<p>Mobile Money</p></div>
-<div class="service">🏦<p>Bank Transfers</p></div>
-<div class="service">💵<p>Cash Deposits</p></div>
-<div class="service">💳<p>Cards</p></div>
-<div class="service">🌍<p>International Transfers</p></div>
-<div class="service">₿<p>Cryptocurrency</p></div>
+<h3>What would you like to do?</h3>
+<div class="grid">
+<div class="card" onclick="show('send')">💸<br><b>Send Money</b></div>
+<div class="card" onclick="show('receive')">💰<br><b>Receive Money</b></div>
+<div class="card" onclick="show('fund')">➕<br><b>Add Money</b></div>
+<div class="card" onclick="show('crypto')">₿<br><b>Crypto</b></div>
 </div>
-<button onclick="logoutUser()">Logout</button>
+
+<div class="panel">
+<h3>International Transfers</h3>
+<p>Sierra Leone • USA • UK • Guinea • Liberia • Ghana • Nigeria • Canada • Gambia</p>
+</div>
+</section>
+
+<section id="send" class="hidden">
+<h3>Send Money</h3>
+<input placeholder="Recipient full name">
+<input placeholder="Recipient phone number">
+<select>
+<option>Select country</option>
+<option>Sierra Leone</option>
+<option>United States</option>
+<option>United Kingdom</option>
+<option>Guinea</option>
+<option>Liberia</option>
+<option>Ghana</option>
+<option>Nigeria</option>
+<option>Canada</option>
+<option>The Gambia</option>
+</select>
+<input type="number" placeholder="Amount">
+<select>
+<option>Choose payout method</option>
+<option>Mobile Money</option>
+<option>Bank Transfer</option>
+<option>Cash Pickup</option>
+</select>
+<button onclick="demo()">Continue</button>
+</section>
+
+<section id="receive" class="hidden">
+<h3>Receive Money</h3>
+<p>Receive money from family and friends.</p>
+<input placeholder="Sender name">
+<input placeholder="Amount expected">
+<button onclick="demo()">Continue</button>
+</section>
+
+<section id="fund" class="hidden">
+<h3>Add Money</h3>
+<select>
+<option>Choose funding method</option>
+<option>Mobile Money</option>
+<option>Bank Transfer</option>
+<option>Cash Deposit</option>
+<option>Debit/Credit Card</option>
+<option>Approved Agent</option>
+<option>Digital Wallet</option>
+</select>
+<input type="number" placeholder="Amount">
+<button onclick="demo()">Continue</button>
+</section>
+
+<section id="crypto" class="hidden">
+<h3>Crypto Services</h3>
+<div class="panel">
+<p>₿ Bitcoin</p>
+<p>₮ USDT</p>
+<p>◆ Ethereum</p>
+<p>◎ Solana</p>
+</div>
+<p>Cryptocurrency services will be activated after secure integration and regulatory approval.</p>
+</section>
+
+<section id="history" class="hidden">
+<h3>Transaction History</h3>
+<p>No transactions yet.</p>
 </section>
 
 </main>
 
+<nav>
+<button onclick="show('home')">Home</button>
+<button onclick="show('send')">Send</button>
+<button onclick="show('history')">History</button>
+<button onclick="show('crypto')">Crypto</button>
+</nav>
+
 <footer>
-DEM CASH INTERNATIONAL © 2026
+DEM CASH INTERNATIONAL<br>
+Your Money, Your World.<br>
+© 2026 DEM CASH INTERNATIONAL
 </footer>
 
 <script>
-function showRegister() {
-  document.getElementById("login").classList.add("hidden");
-  document.getElementById("register").classList.remove("hidden");
+function show(id){
+document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
+document.getElementById(id).classList.remove('hidden');
+window.scrollTo(0,0);
 }
-function showLogin() {
-  document.getElementById("register").classList.add("hidden");
-  document.getElementById("login").classList.remove("hidden");
-}
-function registerUser() {
-  const name = document.getElementById("fullName").value.trim();
-  const email = document.getElementById("regEmail").value.trim();
-  const password = document.getElementById("regPassword").value;
-  if (!name || !email || !password) {
-    alert("Please complete all fields.");
-    return;
-  }
-  alert("Demo registration successful! Please log in.");
-  showLogin();
-}
-function loginUser() {
-  const email = document.getElementById("loginEmail").value.trim();
-  const password = document.getElementById("loginPassword").value;
-  if (!email || !password) {
-    alert("Please enter your email and password.");
-    return;
-  }
-  document.getElementById("login").classList.add("hidden");
-  document.getElementById("dashboard").classList.remove("hidden");
-}
-function logoutUser() {
-  document.getElementById("dashboard").classList.add("hidden");
-  showLogin();
+function demo(){
+alert("This is a demonstration. Live payments are not yet connected.");
 }
 </script>
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DEM CASH INTERNATIONAL</title>
-<style>
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #07130e;
-  color: white;
-}
-header {
-  background: #10271b;
-  padding: 25px 18px;
-  border-bottom: 2px solid #d5a52e;
-}
-h1 { color: #d5a52e; font-size: 25px; }
-.tagline { color: #ddd; }
-main { padding: 20px; }
-.balance {
-  background: #174b30;
-  padding: 24px;
-  border-radius: 15px;
-  margin-bottom: 25px;
-}
-.balance h2 { color: #e7c35b; }
-.amount { font-size: 30px; font-weight: bold; }
-.actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-.action {
-  background: #183b29;
-  padding: 22px 8px;
-  border-radius: 12px;
-  text-align: center;
-  border: 1px solid #d5a52e;
-}
-.action span { font-size: 25px; }
-h3 { color: #e5bd50; }
-footer {
-  text-align: center;
-  padding: 25px;
-  color: #aaa;
-}
-</style>
-</head>
-<body>
-<header>
-  <h1>DEM CASH INTERNATIONAL</h1>
-  <p class="tagline">Your Money. Your World. Your Future.</p>
-</header>
-<main>
-  <div class="balance">
-    <h2>My Wallet</h2>
-    <p>Available Balance</p>
-    <div class="amount">SLE 0.00</div>
-  </div>
-
-  <h3>Our Services</h3>
-  <div class="actions">
-    <div class="action"><span>📱</span><p>Mobile Money</p></div>
-    <div class="action"><span>🏦</span><p>Bank Transfer</p></div>
-    <div class="action"><span>💵</span><p>Cash Deposit</p></div>
-    <div class="action"><span>💳</span><p>Debit Card</p></div>
-    <div class="action"><span>🌍</span><p>International Transfers</p></div>
-    <div class="action"><span>₿</span><p>Cryptocurrency</p></div>
-  </div>
-</main>
-<footer>
-  DEM CASH INTERNATIONAL © 2026
-</footer>
 </body>
 </html>
