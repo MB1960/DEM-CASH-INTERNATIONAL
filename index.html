@@ -176,6 +176,22 @@ function show(id) {
 function demo(){
 alert("This is a demonstration. Live payments are not yet connected.");
 }
+  
+function receiveMoney() {
+  const sender = document.getElementById('senderName').value.trim();
+  const amount = Number(document.getElementById('receiveAmount').value);
+  const provider = document.querySelector('#receive select').value;
+
+  if (!sender || !amount || amount <= 0 || !provider) {
+    alert('Please complete all fields correctly.');
+    return;
+  }
+
+  alert('Demo receive request successful!\nSender: ' + sender +
+    '\nAmount: ' + amount +
+    '\nProvider: ' + provider);
+}
+
 </script>
 </body>
 </html>
