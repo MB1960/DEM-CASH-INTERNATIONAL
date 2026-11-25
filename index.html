@@ -1,289 +1,87 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DEM CASH INTERNATIONAL</title>
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07130d"><title>DEM CASH INTERNATIONAL</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#07130e;color:white;font-family:Arial,sans-serif}
-header{background:#10271b;padding:22px;text-align:center;border-bottom:2px solid #d5a52e}
-header h1{color:#e5bd50;font-size:25px;margin:5px}
-header p{color:#ddd}
-main{padding:20px;max-width:550px;margin:auto}
-.balance{background:#142c1e;border:1px solid #d5a52e;border-radius:15px;padding:22px;margin:15px 0}
-.balance small{color:#ddd}
-.balance h2{font-size:30px;color:#e5bd50}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.card{background:#142c1e;border:1px solid #d5a52e;border-radius:12px;padding:18px;text-align:center;cursor:pointer}
-.card b{color:#e5bd50;font-size:17px}
-h3{color:#e5bd50}
-button{background:#d5a52e;color:#07130e;border:0;padding:14px;border-radius:9px;font-weight:bold;width:100%;margin-top:12px}
-input,select{width:100%;padding:14px;margin:8px 0;background:#142c1e;color:white;border:1px solid #d5a52e;border-radius:8px}
-.panel{background:#10271b;padding:18px;border-radius:12px;margin-top:20px}
-.hidden{display:none}
-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;background:#10271b;padding:10px;position:sticky;bottom:0}
-nav button{font-size:12px;padding:12px 3px;margin:0}
-footer{text-align:center;color:#aaa;padding:20px;font-size:12px}
-</style>
-</head>
-<body>
-
-<header>
-<h1>DEM CASH</h1>
-<p>INTERNATIONAL</p>
-<small>FAST • SAFE • RELIABLE</small>
-</header>
-
+:root{--g:#0b8f50;--d:#07130d;--gold:#d6ad45;--bg:#f3f6f3}*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#17221a}
+header{background:var(--d);color:white;padding:22px 16px;border-bottom:4px solid var(--gold)}
+.brand{font-size:21px;font-weight:bold}.brand span{color:var(--gold)}header small{color:#d9e5dc}
+.notice{margin:14px;padding:12px;background:#fff3d3;border:1px solid #e8cf82;border-radius:10px;font-size:12px;line-height:1.5}
+main{max-width:760px;margin:auto;padding:0 14px 90px}section{display:none;padding:12px 0}section.active{display:block}
+h2{font-size:21px;margin:8px 0}.sub{font-size:13px;color:#657168;line-height:1.5}
+.balance{background:linear-gradient(120deg,#075a34,#0b8f50);color:white;padding:18px;border-radius:14px;margin:14px 0}
+.balance strong{display:block;font-size:28px;margin:7px 0}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.tile,.panel,.record{background:white;border:1px solid #e0e7e1;border-radius:12px;padding:14px}
+.tile{text-align:left;min-height:88px;cursor:pointer}.tile b{display:block;margin-top:8px}
+label{display:block;font-size:13px;font-weight:bold;margin:13px 0 6px}
+input,select{width:100%;padding:13px;border:1px solid #cbd6ce;border-radius:9px;background:white;font-size:15px}
+button{border:0;border-radius:9px;padding:12px;font-weight:bold;cursor:pointer}
+.primary{width:100%;background:var(--g);color:white;margin-top:16px}
+nav{position:fixed;bottom:0;left:0;right:0;background:var(--d);border-top:2px solid var(--gold);display:flex;padding:8px 2px calc(8px + env(safe-area-inset-bottom))}
+nav button{background:none;color:white;flex:1;font-size:11px;padding:8px 2px}nav button.active{color:#f0c85e}
+.record{margin:9px 0;font-size:13px}.record small{display:block;color:#657168;margin-top:6px;line-height:1.5}
+.status{float:right;border-radius:20px;background:#fff1ce;color:#735100;padding:4px 8px;font-size:11px}
+.actions{margin-top:10px}.cancel{background:#fff0ed;color:#9d281c}.empty{background:white;padding:20px;text-align:center;color:#657168;border-radius:10px}
+@media(min-width:600px){.grid{grid-template-columns:repeat(4,1fr)}}
+</style></head><body>
+<header><div class="brand">DEM CASH <span>INTERNATIONAL</span></div><small>Simple • Secure-minded • International transfers</small></header>
+<div class="notice"><b>DEMO ONLY:</b> This prototype does not move money, charge cards, connect to Orange Money, or issue refunds. Never enter real card details, PINs, passwords, or one-time codes.</div>
 <main>
-<section id="home">
-<div class="balance">
-<small>MY DEM CASH WALLET</small>
-<h2>Le 0.00</h2>
-<small>Demo balance • Sierra Leone</small>
-</div>
+<section id="home" class="active"><div class="balance">Demo wallet balance<strong>Le 0.00</strong><small>No real funds are held in this demo.</small></div>
+<h2>Welcome</h2><p class="sub">What would you like to do?</p><div class="grid">
+<button class="tile" onclick="showPage('send')">↗️<b>Send Money</b></button>
+<button class="tile" onclick="showPage('receive')">↙️<b>Receive Money</b></button>
+<button class="tile" onclick="showPage('fund')">＋<b>Add Money</b></button>
+<button class="tile" onclick="showPage('crypto')">₿<b>Crypto</b></button></div>
+<h3>Recent activity</h3><div id="recentList"></div></section>
 
-<h3>What would you like to do?</h3>
-<div class="grid">
-<div class="card" onclick="show('send')">💸<br><b>Send Money</b></div>
-<div class="card" onclick="show('receive')">💰<br><b>Receive Money</b></div>
-<div class="card" onclick="show('fund')">➕<br><b>Add Money</b></div>
-<div class="card" onclick="show('crypto')">₿<br><b>Crypto</b></div>
-</div>
+<section id="send"><h2>Send Money</h2><p class="sub">Create a demo transfer request. No money will be sent.</p><div class="panel"><form id="sendForm">
+<label>Recipient full name</label><input id="recipient" required placeholder="Recipient name">
+<label>Recipient phone</label><input id="sendPhone" required type="tel" placeholder="+232...">
+<label>Destination country</label><select id="country" required><option value="">Choose country</option><option>Sierra Leone</option><option>United States</option><option>United Kingdom</option><option>Guinea</option><option>Liberia</option><option>Ghana</option><option>Nigeria</option><option>Canada</option><option>The Gambia</option><option>Other country</option></select>
+<label>Amount</label><input id="sendAmount" type="number" min=".01" step=".01" required placeholder="Amount">
+<label>Currency</label><select id="sendCurrency"><option>SLE</option><option>USD</option><option>GBP</option><option>GNF</option><option>LRD</option><option>GHS</option><option>NGN</option><option>CAD</option><option>GMD</option></select>
+<label>Payout method</label><select id="payout"><option>Mobile Money</option><option>Bank Transfer</option><option>Cash Pickup</option></select>
+<label>Provider</label><select id="provider"><option>Orange Money</option><option>Afrimoney</option><option>Wave</option><option>MTN MoMo</option><option>Moov Money</option><option>Bank / Cash Pickup</option></select>
+<button class="primary">Create demo transfer request</button></form></div></section>
 
-<div class="panel">
-<h3>International Transfers</h3>
-<p>Sierra Leone • USA • UK • Guinea • Liberia • Ghana • Nigeria • Canada • Gambia</p>
-</div>
-</section>
+<section id="receive"><h2>Receive Money</h2><p class="sub">Record an expected payment; this does not confirm funds arrived.</p><div class="panel"><form id="receiveForm">
+<label>Sender full name</label><input id="sender" required placeholder="Sender name">
+<label>Expected amount</label><input id="receiveAmount" type="number" min=".01" step=".01" required placeholder="Amount">
+<label>Currency</label><select id="receiveCurrency"><option>SLE</option><option>USD</option><option>GBP</option><option>GHS</option><option>NGN</option></select>
+<label>Receiving provider</label><select id="receiveProvider"><option>Orange Money</option><option>Afrimoney</option><option>Bank Transfer</option><option>Cash Pickup</option></select>
+<button class="primary">Save expected payment</button></form></div></section>
 
-<section id="send" class="hidden">
-<h3>Send Money</h3>
-<input placeholder="Recipient full name">
-<input placeholder="Recipient phone number">
-<select>
-<option>Select country</option>
-<option>Sierra Leone</option>
-<option>United States</option>
-<option>United Kingdom</option>
-<option>Guinea</option>
-<option>Liberia</option>
-<option>Ghana</option>
-<option>Nigeria</option>
-<option>Canada</option>
-<option>The Gambia</option>
-</select>
-<input type="number" placeholder="Amount">
-<select>
-<option>Choose payout method</option>
-<option>Mobile Money</option>
-<option>Bank Transfer</option>
-<option>Cash Pickup</option>
-</select>
-  <select>
-  <option>Select mobile money provider</option>
-  <option>Orange Money</option>
-  <option>Afrimoney</option>
-  <option>Wave</option>
-  <option>MTN MoMo</option>
-  <option>Moov Money</option>
-  </select>
-<button type="button" onclick="sendMoney()">Continue</button>
-  </section><section id="receive" class="hidden">
+<section id="fund"><h2>Add Money</h2><p class="sub">Create a funding request. Payment is not processed here.</p><div class="panel"><form id="fundForm">
+<label>Funding method</label><select id="fundMethod"><option>Orange Money (Mobile Money)</option><option>Afrimoney</option><option>Bank Transfer</option><option>Cash Deposit</option><option>Debit / Credit Card (not enabled)</option><option>Approved Agent</option><option>Digital Wallet</option></select>
+<label>Amount</label><input id="fundAmount" type="number" min=".01" step=".01" required placeholder="Amount">
+<label>Currency</label><select id="fundCurrency"><option>SLE</option><option>USD</option><option>GBP</option></select>
+<label>Mobile number or payment reference (optional)</label><input id="fundRef" placeholder="Never enter PIN or OTP">
+<button class="primary">Create funding request</button></form></div></section>
 
-<h3>Receive Money</h3>
-<p>Receive money from family and friends.</p>
-<input id="senderName" placeholder="Sender name">
-<input id="receiveAmount" type="number" placeholder="Amount expected">
-
-<select>
-<option value="">Choose receiving mobile money provider</option>
-<option>Orange Money</option>
-<option>Afrimoney</option>
-<option>Wave</option>
-<option>MTN MoMo</option>
-<option>Moov Money</option>
-</select>
-<button onclick="receiveMoney()">Continue</button>
- 
-
-<section id="fund" class="hidden">
-<h3>Add Money</h3> 
-<select>
-<option>Choose funding method</option>
-<option>Orange Money (Mobile Money)</option>
-<option>Bank Transfer</option>
-<option>Cash Deposit</option>
-<option>Debit/Credit Card</option>
-<option>Approved Agent</option>
-<option>Digital Wallet</option>
-</select>
-<input type="number" placeholder="Amount">
-<button onclick="demo()">Continue</button>
-</section>
-
-<section id="crypto" class="hidden">
-<h3>Crypto Services</h3>
-<div class="panel">
-<p>₿ Bitcoin</p>
-<p>₮ USDT</p>
-<p>◆ Ethereum</p>
-<p>◎ Solana</p>
-</div>
-<p>Cryptocurrency services will be activated after secure integration and regulatory approval.</p>
-</section>
-
-<section id="history" class="hidden">
-<h3>Transaction History</h3>
-<p>No transactions yet.</p>
-</section>
-
+<section id="history"><h2>Transaction History</h2><p class="sub">Requests saved on this device only; not official payment records.</p><div id="historyList"></div></section>
+<section id="crypto"><h2>Crypto</h2><p class="sub">Separate planned feature.</p><div class="panel"><b>Planned assets</b><p>USDT • Bitcoin • Ethereum • Solana • Other supported cryptocurrencies</p><p class="sub">Buying, selling, deposits and withdrawals are disabled in this prototype. No crypto wallet is connected.</p></div></section>
+<section id="help"><h2>Payments & cancellations</h2><div class="panel">
+<h3>Payment status</h3><p class="sub">A request stays pending until a real provider confirms payment through a secure integration. This demo cannot verify payments or mark requests paid.</p>
+<h3>Cancellation</h3><p class="sub">You can request cancellation for an eligible pending demo request. This is not proof a real payment or transfer has been stopped.</p>
+<h3>Refunds</h3><p class="sub">Refunds must be confirmed by the payment provider. This demo cannot issue or guarantee refunds.</p>
+<p class="sub">Before launch, we must establish cancellation rules, fees, refund timing, customer support, provider agreements and applicable regulatory requirements.</p>
+</div></section>
 </main>
-
-<nav>
-<button onclick="show('home')">Home</button>
-<button onclick="show('send')">Send</button>
-<button onclick="show('history')">History</button>
-<button onclick="show('crypto')">Crypto</button>
-</nav>
-
-<footer>
-DEM CASH INTERNATIONAL<br>
-Your Money, Your World.<br>
-© 2026 DEM CASH INTERNATIONAL
-</footer>
-
+<nav><button class="active" data-page="home" onclick="showPage('home')">⌂<br>Home</button><button data-page="send" onclick="showPage('send')">↗<br>Send</button><button data-page="history" onclick="showPage('history')">▤<br>History</button><button data-page="crypto" onclick="showPage('crypto')">₿<br>Crypto</button><button data-page="help" onclick="showPage('help')">ⓘ<br>Help</button></nav>
 <script>
-
-function show(id) {
-  const sections = document.querySelectorAll('main section');
-
-  sections.forEach(section => {
-    section.classList.add('hidden');
-  });
-
-  const target = document.getElementById(id);
-
-  if (target) {
-    target.classList.remove('hidden');
-    window.scrollTo(0, 0);
-  } else {
-    alert('Page not found: ' + id);
-  }
-}
-
-
-
-
-function demo() {
-  const section = document.getElementById('fund');
-  const select = section.querySelector('select');
-  const amountInput = section.querySelector('input');
-
-  const method = select.value;
-  const amount = Number(amountInput.value);
-
-  if (select.selectedIndex === 0 || !amount || amount <= 0) {
-    alert('Please select a funding method and enter a valid amount.');
-    return;
-  }
-
-  alert(
-  'DEM CASH INTERNATIONAL\n\n' +
-  'Funding method: ' + method +
-  '\nAmount: Le ' + amount +
-  '\n\nYour funding request has been recorded for review. Payment is not yet processed.'
-);
-
-}
-{
-  const section = document.getElementById('fund');
-  const select = section.querySelector('select');
-  const amountInput = section.querySelector('input');
-
-  const method = select.value;
-  const amount = Number(amountInput.value);
-
-  if (select.selectedIndex === 0 || !amount || amount <= 0) {
-    alert('Please select a funding method and enter a valid amount.');
-    return;
-  }
-
-  alert(
-    'DEM CASH INTERNATIONAL\n\n' +
-    'Funding method: ' + method +
-    '\nAmount: Le ' + amount +
-    '\n\nDemo request only. No money has been deposited.'
-  );
-}
- {
-  const section = document.getElementById('fund');
-  const select = section.querySelector('select');
-  const amountInput = section.querySelector('input');
-
-  const method = select.value;
-  const amount = Number(amountInput.value);
-
-  if (select.selectedIndex === 0 || !amount || amount <= 0) {
-    alert('Please select a funding method and enter a valid amount.');
-    return;
-  }
-
-  alert(
-    'DEM CASH INTERNATIONAL\n\n' +
-    'Funding method: ' + method +
-    '\nAmount: Le ' + amount +
-    '\n\nDemo request only. No money has been deposited.'
-  );
-}
-
-  
-function receiveMoney() {
-  const sender = document.getElementById('senderName').value.trim();
-  const amount = Number(document.getElementById('receiveAmount').value);
-  const provider = document.querySelector('#receive select').value;
-
-  if (!sender || !amount || amount <= 0 || !provider) {
-    alert('Please complete all fields correctly.');
-    return;
-  }
-
-  alert('Demo receive request successful!\nSender: ' + sender +
-    '\nAmount: ' + amount +
-    '\nProvider: ' + provider);
-}
-
-function sendMoney() {
-  const section = document.getElementById('send');
-
-  const inputs = section.querySelectorAll('input');
-  const selects = section.querySelectorAll('select');
-
-  const recipient = inputs[0]?.value.trim();
-  const phone = inputs[1]?.value.trim();
-  const amount = Number(inputs[2]?.value);
-
-  const country = selects[0]?.value;
-  const payout = selects[1]?.value;
-
-  if (!recipient || !phone || !amount ||
-      amount <= 0 || !country || !payout) {
-    alert('Please complete all transfer details.');
-    return;
-  }
-
-  alert(
-    'DEMO TRANSFER REQUEST\n' +
-    'Recipient: ' + recipient +
-    '\nPhone: ' + phone +
-    '\nAmount: ' + amount +
-    '\nCountry: ' + country +
-    '\nPayout: ' + payout +
-    '\n\nThis is a demonstration only. No money has been sent.'
-  );
-}
-
-</script>
-</body>
-</html>
+const KEY='dem_cash_demo_requests_v1';
+function records(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return []}}
+function store(a){localStorage.setItem(KEY,JSON.stringify(a))}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function card(r){return `<div class="record"><span class="status">${esc(r.status)}</span><b>${esc(r.type)} · ${esc(r.id)}</b><small>${esc(r.details)}<br>${esc(r.date)}</small>${r.status==='Pending'?`<div class="actions"><button class="cancel" onclick="cancelRequest('${r.id}')">Request cancellation</button></div>`:''}</div>`}
+function render(){let a=records();document.getElementById('historyList').innerHTML=a.length?a.map(card).join(''):'<div class="empty">No requests yet.</div>';document.getElementById('recentList').innerHTML=a.length?a.slice(0,2).map(card).join(''):'<div class="empty">Your recent activity will appear here.</div>'}
+function add(type,details){let a=records();a.unshift({id:'DCI-'+Date.now().toString().slice(-8),type,details,status:'Pending',date:new Date().toLocaleString()});store(a);render();alert('Demo request saved on this device. No payment or transfer was processed.')}
+function showPage(id){document.querySelectorAll('main section').forEach(s=>s.classList.toggle('active',s.id===id));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));window.scrollTo(0,0);render()}
+function cancelRequest(id){let a=records(),r=a.find(x=>x.id===id);if(!r||r.status!=='Pending')return;if(!confirm('Request cancellation of this pending demo item?'))return;r.status='Cancellation requested';store(a);render();alert('Cancellation request recorded in this demo. No real payment or transfer was cancelled.')}
+document.getElementById('sendForm').addEventListener('submit',e=>{e.preventDefault();add('Transfer request',`${recipient.value} • ${sendPhone.value} • ${country.value} • ${sendAmount.value} ${sendCurrency.value} • ${payout.value} • ${provider.value}`);e.target.reset()});
+document.getElementById('receiveForm').addEventListener('submit',e=>{e.preventDefault();add('Expected incoming payment',`${sender.value} • ${receiveAmount.value} ${receiveCurrency.value} • ${receiveProvider.value}`);e.target.reset()});
+document.getElementById('fundForm').addEventListener('submit',e=>{e.preventDefault();add('Funding request',`${fundAmount.value} ${fundCurrency.value} • ${fundMethod.value} • Reference: ${fundRef.value||'Not provided'}`);e.target.reset()});
+render();
+</script></body></html>
