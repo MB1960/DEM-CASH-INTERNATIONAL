@@ -173,9 +173,70 @@ function show(id) {
   }
 }
 
-function demo(){
-alert("This is a demonstration. Live payments are not yet connected.");
+
+
+
+function demo() {
+  const section = document.getElementById('fund');
+  const select = section.querySelector('select');
+  const amountInput = section.querySelector('input');
+
+  const method = select.value;
+  const amount = Number(amountInput.value);
+
+  if (select.selectedIndex === 0 || !amount || amount <= 0) {
+    alert('Please select a funding method and enter a valid amount.');
+    return;
+  }
+
+  alert(
+    'DEM CASH INTERNATIONAL\n\n' +
+    'Funding method: ' + method +
+    '\nAmount: Le ' + amount +
+    '\n\nDemo request only. No money has been deposited.'
+  );
 }
+{
+  const section = document.getElementById('fund');
+  const select = section.querySelector('select');
+  const amountInput = section.querySelector('input');
+
+  const method = select.value;
+  const amount = Number(amountInput.value);
+
+  if (select.selectedIndex === 0 || !amount || amount <= 0) {
+    alert('Please select a funding method and enter a valid amount.');
+    return;
+  }
+
+  alert(
+    'DEM CASH INTERNATIONAL\n\n' +
+    'Funding method: ' + method +
+    '\nAmount: Le ' + amount +
+    '\n\nDemo request only. No money has been deposited.'
+  );
+}
+ {
+  const section = document.getElementById('fund');
+  const select = section.querySelector('select');
+  const amountInput = section.querySelector('input');
+
+  const method = select.value;
+  const amount = Number(amountInput.value);
+
+  if (select.selectedIndex === 0 || !amount || amount <= 0) {
+    alert('Please select a funding method and enter a valid amount.');
+    return;
+  }
+
+  alert(
+    'DEM CASH INTERNATIONAL\n\n' +
+    'Funding method: ' + method +
+    '\nAmount: Le ' + amount +
+    '\n\nDemo request only. No money has been deposited.'
+  );
+}
+
   
 function receiveMoney() {
   const sender = document.getElementById('senderName').value.trim();
