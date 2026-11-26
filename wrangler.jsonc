@@ -1,12 +1,12 @@
 
 {
   "name": "dem-cash-international",
-  "main": "worker.js",
-  "compatibility_date": "2026-11-24",
+  "compatibility_date": "2026-11-26",
   "assets": {
-    "directory": ".",
-    "binding": "ASSETS"
+    "directory": "."
   }
 }
+
+
 
 
