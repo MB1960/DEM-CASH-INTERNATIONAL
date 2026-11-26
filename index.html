@@ -55,6 +55,21 @@ nav button{background:none;color:white;flex:1;font-size:11px;padding:8px 2px}nav
 
 <section id="fund"><h2>Add Money</h2><p class="sub">Create a funding request. Payment is not processed here.</p><div class="panel"><form id="fundForm">
 <label>Funding method</label><select id="fundMethod"><option>Orange Money (Mobile Money)</option><option>Afrimoney</option><option>Bank Transfer</option><option>Cash Deposit</option><option>Debit / Credit Card (not enabled)</option><option>Approved Agent</option><option>Digital Wallet</option></select>
+  
+<div class="notice" id="fundInstructions">
+  <strong>Payment instructions</strong>
+  <p>Orange Money: Use the approved Orange Money payment process.</p>
+  <p>Afrimoney: Use the approved Afrimoney payment process.</p>
+  <p>Bank Transfer: Transfer to the verified DEM CASH bank account.</p>
+  <p>Cash Deposit: Deposit through an authorized channel.</p>
+  <p>Debit/Credit Card: Available after secure card integration.</p>
+  <p>Approved Agent: Visit an authorized DEM CASH agent.</p>
+  <p>Digital Wallet: Use a supported payment wallet.</p>
+  <p>Payments must be verified before your wallet is credited.</p>
+  <p><strong>Agent Funding Policy:</strong> Agents pay 0% commission when adding money to their wallets. Agent payout commission is credited only after a recipient payout is successfully confirmed.</p>
+</div>
+  
+
 <label>Amount</label><input id="fundAmount" type="number" min=".01" step=".01" required placeholder="Amount">
 <label>Currency</label><select id="fundCurrency"><option>SLE</option><option>USD</option><option>GBP</option></select>
 <label>Mobile number or payment reference (optional)</label><input id="fundRef" placeholder="Never enter PIN or OTP">
